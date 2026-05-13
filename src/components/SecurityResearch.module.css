@@ -1,0 +1,58 @@
+/* ── Keyframes ────────────────────────────────────────────────────── */
+
+@keyframes ambientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glassBreath {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 8px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes tabPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 45, 85, 0.4); }
+  50%       { box-shadow: 0 0 16px rgba(255, 45, 85, 0.8); }
+}
+
+/* ── Section ambient background ───────────────────────────────────── */
+
+.ambientBg {
+  background:
+    radial-gradient(ellipse 120% 80% at 20% 50%,
+      rgba(255, 45, 85, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 120% at 80% 50%,
+      rgba(255, 45, 85, 0.04) 0%, transparent 60%),
+    #0a0a0a;
+  background-size: 200% 200%;
+  animation: ambientShift 12s ease infinite;
+}
+
+/* ── Frosted glass header — breathing box-shadow ──────────────────── */
+
+.glassBreath {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+  animation: glassBreath 4s ease-in-out infinite;
+}
+
+/* ── Pull tab ──────────────────────────────────────────────────────── */
+
+.tab {
+  animation: tabPulse 2s ease-in-out infinite;
+}
+
+/* Pause animation when block header is hovered so inline shadow shows */
+.tabHovered {
+  animation-play-state: paused;
+}
